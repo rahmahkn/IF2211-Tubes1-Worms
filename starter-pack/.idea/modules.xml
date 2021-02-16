@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/starter-bots/java/java-sample-bot.iml" filepath="$PROJECT_DIR$/starter-bots/java/java-sample-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/starter-pack.iml" filepath="$PROJECT_DIR$/.idea/starter-pack.iml" />
+    </modules>
+  </component>
+</project>

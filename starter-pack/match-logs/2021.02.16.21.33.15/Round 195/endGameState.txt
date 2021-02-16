@@ -1,0 +1,6 @@
+Match seed: 308289
+
+The winner is: B - Reference Bot
+
+A - Woge- score:1475 health:0
+B - Reference Bot- score:1697 health:57

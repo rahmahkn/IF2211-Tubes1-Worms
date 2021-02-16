@@ -4,7 +4,7 @@
   "game-engine-jar": "./ec-2019-game-engine-jvm-full-2019.3.2.jar",
   "verbose-mode": true,
   "max-runtime-ms": 1000,
-  "player-a": "./starter-bots/javascript",
+  "player-a": "./starter-bots/java",
   "player-b": "./reference-bot/javascript",
   "max-request-retries": 10,
   "request-timeout-ms": 5000,
