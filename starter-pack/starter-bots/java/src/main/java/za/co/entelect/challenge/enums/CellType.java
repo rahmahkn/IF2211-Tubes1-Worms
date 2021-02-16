@@ -8,5 +8,7 @@ public enum CellType {
     @SerializedName("DIRT")
     DIRT,
     @SerializedName("AIR")
-    AIR;
+    AIR,
+    @SerializedName("LAVA")
+    LAVA;
 }

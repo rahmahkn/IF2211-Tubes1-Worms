@@ -5,4 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class MyWorm extends Worm {
     @SerializedName("weapon")
     public Weapon weapon;
+    
+    @SerializedName("banana")
+    public BananaBombs banana;
+    
+    @SerializedName("snowball")
+    public Snowballs snowball;
 }
