@@ -45,7 +45,7 @@ public class Bot {
                 return new SnowBallsCommand(enemyWorm.position.x,enemyWorm.position.y);
             }
             Direction direction = resolveDirection(currentWorm.position, enemyWorm.position);
-            return new ShootCommand(direction);
+            if (enemyWorm.health > 0) return new ShootCommand(direction);
         }
         
         //follow cacing lain
