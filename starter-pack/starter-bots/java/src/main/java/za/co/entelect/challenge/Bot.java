@@ -35,20 +35,6 @@ public class Bot {
 
     public Command run() {
         Worm enemyWorm = getFirstWormInRange();
-        if(this.currentWorm.id==1){ //commando ngikut ke agent
-            Position follow = this.gameState.myPlayer.worms[1].position;
-            System.out.println("commando ke agent");
-            return digAndMoveTo(follow);
-        } else if (this.currentWorm.id==2){ //agent ngikut ke techno
-            Position follow = this.gameState.myPlayer.worms[2].position;
-            System.out.println("agent ke techno");
-            return digAndMoveTo(follow);
-        } else if (this.currentWorm.id==3){ //techno ke commando
-            Position follow = this.gameState.myPlayer.worms[0].position;
-            System.out.println("techno ke commando");
-            return digAndMoveTo(follow);
-        }
-        
         if (enemyWorm != null) {
             if(canBananaBombThem(enemyWorm)){ //banana udah jalan
                 System.out.println("PisanNGGGG");
@@ -62,27 +48,35 @@ public class Bot {
             return new ShootCommand(direction);
         }
         
-        //List<Cell> surroundingBlocks = getSurroundingCells(currentWorm.position.x, currentWorm.position.y);
-        /* //work tp msh blm optimal
-        for(Iterator<Cell> iter = surroundingBlocks.listIterator(); iter.hasNext();){
-            Cell a = iter.next();
-            if(!isSafeZone(a)){ //menghapus cell yang dianggap berbahaya dari list
-                iter.remove();
-                System.out.println("Lava dihapus");
+        //follow cacing lain
+        int idnicacing = this.currentWorm.id;
+        //pertama cari cacinglaen
+        MyWorm cacinglaen = this.gameState.myPlayer.worms[0]; //inisialisasi
+        for (int i=0;i<3;i++){
+            if(this.gameState.myPlayer.worms[i].id!=idnicacing){
+                cacinglaen = this.gameState.myPlayer.worms[i];
+                break;
             }
         }
-        */
-        /*
-        int cellIdx = random.nextInt(surroundingBlocks.size());
-        Cell block = surroundingBlocks.get(cellIdx);
+        //ke tempat si cacinglaen kalo mereka berjauhan
+        if(euclideanDistance(cacinglaen.position.x,cacinglaen.position.y,currentWorm.position.x,currentWorm.position.x)>=2){
+            return digAndMoveTo(cacinglaen.position);
+        }
         
+        //random move
+        List<Cell> surroundingBlocks = getSurroundingCells(currentWorm.position.x, currentWorm.position.y);
+        int cellIdx = random.nextInt(surroundingBlocks.size());
+
+        Cell block = surroundingBlocks.get(cellIdx);
         if (block.type == CellType.AIR) {
             return new MoveCommand(block.x, block.y);
         } else if (block.type == CellType.DIRT) {
             return new DigCommand(block.x, block.y);
         }
-        */
+        
         return new DoNothingCommand();
+        
+        
     }
 
     private Worm getFirstWormInRange() {
@@ -143,7 +137,6 @@ public class Bot {
                 }
             }
         }
-
         return cells;
     }
             
@@ -225,60 +218,7 @@ public class Bot {
                 && distance <= this.currentWorm.snowball.range
                 && distance > this.currentWorm.snowball.freezeRadius * Math.sqrt(2);
     }
-    
-    private Command goToCenter(){
-        int x,y;
-        if(this.currentWorm.position.x <16){
-            if(this.currentWorm.position.y<16){
-                x = this.currentWorm.position.x++;
-                y = this.currentWorm.position.y++;
-            } else{ //y>16
-                x = this.currentWorm.position.x++;
-                y = this.currentWorm.position.y--;
-            }
-        } else{ //x>=16
-            if(this.currentWorm.position.y<16){
-                x = this.currentWorm.position.x--;
-                y = this.currentWorm.position.y++;
-            } else{
-                x = this.currentWorm.position.x--;
-                y =this.currentWorm.position.y--;
-            }
-        }
-        return digOrMoveTo(x,y);
-    }
-    
-    private Command goTo(Position dest){
-        int x,y;
-        if(this.currentWorm.position.x <dest.x){
-            if(this.currentWorm.position.y<dest.y){
-                x = this.currentWorm.position.x++;
-                y = this.currentWorm.position.y++;
-            } else{ //y>16
-                x = this.currentWorm.position.x++;
-                y = this.currentWorm.position.y--;
-            }
-        } else{ //x>=16
-            if(this.currentWorm.position.y<dest.y){
-                x = this.currentWorm.position.x--;
-                y = this.currentWorm.position.y++;
-            } else{
-                x = this.currentWorm.position.x--;
-                y =this.currentWorm.position.y--;
-            }
-        }
-        return digOrMoveTo(x,y);
-    }
-    
-    private Command digOrMoveTo(int x, int y){
-        if(gameState.map[y][x].type == CellType.AIR){
-            return new MoveCommand(x,y);
-        } else if (gameState.map[y][x].type == CellType.DIRT){
-            return new DigCommand(x,y);
-        }
-        return new DoNothingCommand();
-    }
-    
+   
     private Command digAndMoveTo(Position dest){
         Cell shortestPath = findNextCellInPath(this.currentWorm.position,dest);
         
@@ -291,22 +231,6 @@ public class Bot {
         } else if (shortestPath.type == CellType.DIRT){
             return new DigCommand(shortestPath.x,shortestPath.y);
         } return new DoNothingCommand();
-    }
-    
-    private boolean isNearEnough(int x, int y){
-       int distance = euclideanDistance(this.currentWorm.position.x,this.currentWorm.position.y,x,y);
-       return distance>1;
-    }
-    
-    private Command gangStrategy(){
-        //berlaku untuk selain commando
-        if(!"Commando".equals(this.currentWorm.profession)){
-            Position commandoPos = this.gameState.myPlayer.worms[0].position;
-            if(!isNearEnough(commandoPos.x,commandoPos.y)){
-                return digAndMoveTo(commandoPos);
-            }
-        }
-        return new DoNothingCommand();
     }
     
     private Cell findNextCellInPath(Position origin, Position dest){
@@ -352,6 +276,21 @@ public class Bot {
         Cell block = surroundingBlocks.get(cellIdx);
         return block;
     }
+    
+    
+    private boolean isSurroundbyLava(){
+        boolean lava = false;
+        List<Cell> cellsAround = getSurroundingCells(currentWorm.position.x, currentWorm.position.y);
+        for(int i=0;i<cellsAround.size();i++){
+            if(cellsAround.get(i).type==CellType.LAVA){
+                lava = true;
+                break;
+            }
+            
+        }
+        return lava;
+    }
+   
 }
 
 
