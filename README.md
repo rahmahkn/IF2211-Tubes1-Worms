@@ -3,7 +3,7 @@
 Program ini merupakan bot yang digunakan untuk menyusun strategi greedy yang bertujuan untuk memenangkan game Worms.
 
 ## Algoritma Greedy yang Diimplementasikan
-<blablabla>
+Isi di sini gaissss
 
 ## Requirement Program dan Setting Up
 Terdapat requirement dasar untuk menjalankan game ini:
@@ -24,3 +24,4 @@ Terdapat requirement dasar untuk menjalankan game ini:
 Jesica (13519011)
 Rahmah Khoirussyifa’ Nurdini (13519013)
 Clarisa Natalia Edelin (13519213)
+   
