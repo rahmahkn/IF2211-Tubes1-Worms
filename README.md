@@ -14,7 +14,7 @@ Terdapat requirement dasar untuk menjalankan game ini:
 ## How to Use
 1. Open project ini menggunakan IntellIJ
 2. Install project ini dengan plugin Maven yang sudah tersedia pada IntellIJ
-3. Pindahkan file `..-jar-with-dependencies.jar` ke folder starter-pack
+3. Pindahkan file `..-jar-with-dependencies.jar` pada folder `target` ke folder `starter-pack`
 4. Klik `run.bat` untuk menjalankan permainannya pada command prompt
 5. Jika ingin melihat tampilan yang jauh lebih menarik, dapat menggunakan visualizer
 6. Copy isi dari folder `matches-log` ke folder `Matches` yang ada pada folder visualizer
