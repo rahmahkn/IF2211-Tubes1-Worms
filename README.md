@@ -6,7 +6,7 @@ Program ini merupakan bot yang digunakan untuk menyusun strategi greedy yang ber
 Isi di sini gaissss
 
 ## Requirement Program dan Setting Up
-Terdapat requirement dasar untuk menjalankan game ini:
+Terdapat requirement dasar untuk menjalankan game ini, yaitu menginstall:
 1. Java (minimal Java 8): https://www.oracle.com/java/technologies/javase/javasejdk8-downloads.html
 2. IntellIJ IDEA: https://www.jetbrains.com/idea/
 3. NodeJS: https://nodejs.org/en/download/
@@ -20,8 +20,14 @@ Terdapat requirement dasar untuk menjalankan game ini:
 6. Copy isi dari folder `matches-log` ke folder `Matches` yang ada pada folder visualizer
 7. Klik `start-visualiser` untuk menjalankan visualizer
 
+## Game Engine Source
+Game engine: https://github.com/EntelectChallenge/2019-Worms.
+Latest game engine: https://github.com/EntelectChallenge/2019-Worms/releases/tag/2019.3.2
+Game rules: https://github.com/EntelectChallenge/2019-Worms/blob/develop/game-engine/game-rules.md.
+Game visualizer: https://github.com/dlweatherhead/entelect-challenge-2019-visualiser/releases/tag/v1.0f1
+
 ## Author
-Jesica (13519011)
-Rahmah Khoirussyifa’ Nurdini (13519013)
-Clarisa Natalia Edelin (13519213)
-   
+1. Jesica (13519011)
+2. Rahmah Khoirussyifa’ Nurdini (13519013)
+3. Clarisa Natalia Edelin (13519213)
+  
