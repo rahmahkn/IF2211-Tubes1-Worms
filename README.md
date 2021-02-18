@@ -21,10 +21,10 @@ Terdapat requirement dasar untuk menjalankan game ini, yaitu menginstall:
 7. Klik `start-visualiser` untuk menjalankan visualizer
 
 ## Game Engine Source
-Game engine: https://github.com/EntelectChallenge/2019-Worms.
-Latest game engine: https://github.com/EntelectChallenge/2019-Worms/releases/tag/2019.3.2
-Game rules: https://github.com/EntelectChallenge/2019-Worms/blob/develop/game-engine/game-rules.md.
-Game visualizer: https://github.com/dlweatherhead/entelect-challenge-2019-visualiser/releases/tag/v1.0f1
+1. Game engine: https://github.com/EntelectChallenge/2019-Worms.
+2. Latest game engine: https://github.com/EntelectChallenge/2019-Worms/releases/tag/2019.3.2
+3. Game rules: https://github.com/EntelectChallenge/2019-Worms/blob/develop/game-engine/game-rules.md.
+4. Game visualizer: https://github.com/dlweatherhead/entelect-challenge-2019-visualiser/releases/tag/v1.0f1
 
 ## Author
 1. Jesica (13519011)
